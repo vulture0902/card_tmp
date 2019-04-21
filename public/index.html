@@ -10,6 +10,8 @@
   <!-- css -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   <!-- js -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js"></script>
@@ -17,20 +19,120 @@
 </head>
 <body>
 
-今のアドレス:<span id='current_address'></span><br>
+
+<style>
+.box1{
+  width: 100%;
+  height: 200px;
+  /*background-color: red;*/
+}
+.box2{
+  width: 100%;
+  height: 200px;
+  background-color: gray;
+}
+</style>
+
+<div class="container">
+  今のアドレス:<span id='current_address'></span><br>
+
+  <div class="row">
+    <div class="col-9">
+
+      <table class="table table-sm table-info">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">name</th>
+            <th scope="col">address</th>
+            <th scope="col">item</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><i class="fas fa-user fa-lg"></i>01</th>
+            <td>user01</td>
+            <td><span id='user01'></span></td>
+            <td><span id='item01'></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><i class="fas fa-user fa-lg"></i>02</th>
+            <td>user02</td>
+            <td><span id='user02'></span></td>
+            <td><span id='item02'></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><i class="fas fa-user fa-lg"></i>03</th>
+            <td>user03</td>
+            <td><span id='user03'></span></td>
+            <td><span id='item03'></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><i class="fas fa-user fa-lg"></i>04</th>
+            <td>user04</td>
+            <td><span id='user04'></span></td>
+            <td><span id='item04'></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><i class="fas fa-user fa-lg"></i>05</th>
+            <td>user05</td>
+            <td><span id='user05'></span></td>
+            <td><span id='item05'></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><i class="fas fa-user fa-lg"></i>06</th>
+            <td>user06</td>
+            <td><span id='user06'></span></td>
+            <td><span id='item06'></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><i class="fas fa-user fa-lg"></i>07</th>
+            <td>user07</td>
+            <td><span id='user07'></span></td>
+            <td><span id='item07'></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><i class="fas fa-user fa-lg"></i>08</th>
+            <td>user08</td>
+            <td><span id='user08'></span></td>
+            <td><span id='item08'></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><i class="fas fa-user fa-lg"></i>09</th>
+            <td>user09</td>
+            <td><span id='user09'></span></td>
+            <td><span id='item09'></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><i class="fas fa-user fa-lg"></i>10</th>
+            <td>user10</td>
+            <td><span id='user10'></span></td>
+            <td><span id='item10'></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-3">
+      <i class="far fa-credit-card fa-7x"></i>
+      <div>token_id</div>
+      <span id='token_id_1' class="d-inline-block text-truncate" style="max-width: 200px;" ></span>
+      <div>カードの総数:<span id='item_supply'></span></div>
 
 
-<br><br>
-user01:    <span id='user01'></span><br>
-user02:    <span id='user02'></span><br>
-user03:    <span id='user03'></span><br>
-user04:    <span id='user04'></span><br>
-user05:    <span id='user05'></span><br>
-user06:    <span id='user06'></span><br>
-user07:    <span id='user07'></span><br>
-user08:    <span id='user08'></span><br>
-user09:    <span id='user09'></span><br>
-user10:    <span id='user10'></span><br>
+      <div class="form-group">
+        <label for="exampleInputPassword1">発行枚数</label>
+        <input class="form-control" id="card_value" placeholder="半角数字で入力してください">
+      </div>
+      <button id='mint_token_btn' type="submit" class="btn btn-danger btn-sm">カードを発行する</button>
+
+
+
+    </div>
+  </div>
+</div>
+
+
 
 <script type="text/javascript" src="js/sub.js"></script>
 <script type="text/javascript" src="js/card.js"></script>
