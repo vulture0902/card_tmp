@@ -19,6 +19,8 @@ contract Card is ERC721XToken {
     constructor(string memory _baseTokenURI) public ERC721XToken(_baseTokenURI) {}
     event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
 
+    //event mint(address from);
+
     function isOwner() public view returns(bool) {
       return msg.sender == _owner;
     }

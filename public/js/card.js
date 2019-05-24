@@ -2,6 +2,8 @@ const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
 
 // 読み込んだ時の、token_idをグローバルで管理する
 var token_id_main = '';
+var address_tmp   = '';
+var tmp1          = '';
 
 //現在のDappsにアクセスしているアドレスを取得する
 async function getAccount() {
@@ -9,7 +11,6 @@ async function getAccount() {
 }
 
 async function card_init() {
-  //const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545")); //Ganacheのポート番号は7545
   const resp = await fetch('/src/Card.json');
   const respJson = await resp.json();
   const contract = web3.eth.contract(respJson.abi).at(respJson.networks[5778].address);
@@ -32,27 +33,22 @@ function card_mint_first_time(contract) {
 
 async function card_do() {
 
-  const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545")); //Ganacheのポート番号は7545
-  const contract = await card_init();
-  let currentAccount = await getAccount();
-  let account_list = await web3.eth.accounts;
-  //var token_id = await card_mint_first_time(contract);
-  var token_id = '0x7C4fF18eDeDfaD5D3360B8102e435198231A2964';
+  var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545")); //Ganacheのポート番号は7545
+  var contract = await card_init();
+  var currentAccount = await getAccount();
+  var account_list = await web3.eth.accounts;
+  var token_id = await card_mint_first_time(contract);
+  //var token_id = '0x7C4fF18eDeDfaD5D3360B8102e435198231A2964';
 
   app.token_id_1 = token_id;
   //$("#token_id_1").text(token_id);
   //var address = '0x77d5a03b6ab7ed7a33c8f31a94128bda862364af' // オーナー
 
-  //return (_ownedTokensIndexes, _ownedTokens);
-  //var tmp = contract.tokensOwned(account_list[0])
-  //console.log('============================== tokensOwned');
-  //console.log(tmp);
-
   contract.individualSupply.call(token_id, (err, res) => {
-      console.log('============================== individualSupply');
-      console.log(res.c[0]);
-      //$("#item_supply").text(res.c[0]);
-      app.item_supply = token_id;
+    console.log('============================== individualSupply');
+    console.log(res.c[0]);
+    //$("#item_supply").text(res.c[0]);
+    app.item_supply = token_id;
   });
 
   // == user01 ==

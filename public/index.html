@@ -103,30 +103,39 @@
       </table>
     </div>
 
-
     <div class="col-3">
       <i class="far fa-credit-card fa-7x"></i>
+      <br>
+
+      <!--
       <div class="card">token_id<br>
         {{ token_id_1 }}
       </div>
-      <br>
+      -->
+      <!--
       <div class="card">
         カードの総数:<br>
         {{ item_supply }}
       </div>
+      -->
+      <!--
       <div class="form-group">
         <label for="exampleInputPassword1">発行枚数</label>
         <input class="form-control" id="card_value" placeholder="半角数字で入力してください" v-model="card_value">
       </div>
-      <button type="submit" class="btn btn-danger btn-sm" v-on:click="mint_token_btn">カードを発行する</button>
+      -->
+
+      <!--
+      <button type="submit" class="btn btn-danger btn-sm" v-on:click="mint_token_btn">ボタンＡ</button>
+      -->
+      <button type="submit" class="btn btn-danger btn-sm" id="mint_token_btn">ボタンＡ</button>
+      <div id="card_address"></div>
 
     </div>
   </div>
   </div>
 
 </div>
-
-
 
 <script type="text/javascript" src="js/sub.js"></script>
 <script type="text/javascript" src="js/card.js"></script>
